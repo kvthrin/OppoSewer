@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://i34cmxmaxfxi"]
+
+[ext_resource type="Script" path="res://SlimeScripts/SlimeMovement.gd" id="1_i5ht8"]
+[ext_resource type="PackedScene" uid="uid://v03p863vcnsm" path="res://Assets/Slimes/Slime.glb" id="2_f3akt"]
+[ext_resource type="AudioStream" uid="uid://cp3ghy37ecjj" path="res://Assets/Sound/SlimeMovement.ogg" id="3_mgbxi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l231g"]
+
+[node name="Slime1" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.4761, -2.03271, 0)
+script = ExtResource("1_i5ht8")
+
+[node name="SlimeModel" parent="." instance=ExtResource("2_f3akt")]
+transform = Transform3D(-4.37111e-08, 1.52581e-10, 1, 0.00349065, 0.999994, 0, -0.999994, 0.00349065, -4.37114e-08, 0, -0.108517, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.49976, -0.00460162, -0.0266295, 0.00460237, 1.49999, 1.12533e-06, 0.0266294, -8.28311e-05, 1.49976, -0.000106812, 0.116831, 0)
+shape = SubResource("SphereShape3D_l231g")
+
+[node name="EdgeDetector1" type="RayCast3D" parent="."]
+transform = Transform3D(1.40501, 0, 0, 0, 1.64389, 0, 0, 0, 0.997485, 1.25381, 0.458818, 0)
+debug_shape_custom_color = Color(0.686275, 0.443137, 0.552941, 1)
+debug_shape_thickness = 5
+
+[node name="EdgeDetector2" type="RayCast3D" parent="."]
+transform = Transform3D(1.98403, 0, 0, 0, 1.48871, 0, 0, 0, 1, -1.16661, 0.316496, 0)
+debug_shape_custom_color = Color(0.686275, 0.443137, 0.552941, 1)
+debug_shape_thickness = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_mgbxi")
+volume_db = 10.09
+pitch_scale = 1.1
+autoplay = true
+max_distance = 40.0
+bus = &"SFX"

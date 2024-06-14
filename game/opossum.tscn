@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch7by3xqxrciv"]
+
+[ext_resource type="PackedScene" uid="uid://damx7811tc7pu" path="res://Assets/OpossumModel/Opossum.glb" id="1_b5060"]
+
+[node name="Opossum" instance=ExtResource("1_b5060")]
+
+[node name="Skeleton3D" parent="metarig" index="0"]
+bones/2/rotation = Quaternion(-0.0298228, 0.086497, 0.0952936, 0.991236)
+bones/9/rotation = Quaternion(0.552208, -0.0146056, 0.0849203, 0.829241)
+bones/29/rotation = Quaternion(0.59145, -0.00226898, 0.0452025, 0.805071)
+bones/30/position = Vector3(-3.43057e-14, 0.0242372, 0.0422253)
+bones/32/rotation = Quaternion(-0.373088, 0.790313, 0.446858, -0.191125)
+
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
